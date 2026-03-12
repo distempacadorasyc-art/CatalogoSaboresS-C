@@ -144,9 +144,7 @@ object-fit:contain;
 
 <main class="container py-5">
 
-<div id="productGrid" class="row g-4">
-
-</div>
+<div id="productGrid" class="row g-4"></div>
 
 </main>
 
@@ -160,7 +158,6 @@ object-fit:contain;
 
 <div class="modal fade" id="imgModal" tabindex="-1">
 <div class="modal-dialog modal-dialog-centered modal-lg">
-
 <div class="modal-content">
 
 <div class="modal-header">
@@ -169,15 +166,12 @@ object-fit:contain;
 </div>
 
 <div class="modal-body text-center">
-
 <img id="modalImage" class="modal-img">
-
 </div>
 
 </div>
 </div>
 </div>
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -195,14 +189,15 @@ const productos = [
 ["Pepitoria","pepitoria","200 g,400 g"],
 ["Chile Pasa","chilepasa","30 g"],
 ["Chile Guaque","chileguaque","30 g"],
-["Canela Dura","canela","30 g,454 g"],
+["Canela Dura","caneladura","30 g,227 g,454 g"],
+["Canela Suave","canelasuave","30 g,454 g"],
 ["Cúrcuma","curcuma","50 g,227 g"],
 ["Bijol","bijol","50 g,227 g,454 g"],
 ["Poporopo","poporopo","400 g"],
 ["Pasas","pasas","200 g,400 g"],
 ["Ciruela Pasa","ciruela","200 g,400 g"],
 ["Coco Rayado","coco","200 g,400 g"],
-["Paprika","paprika","50 g,454 g"],
+["Paprika","paprika","50 g,200 g,454 g"],
 ["Consomé","consome","200 g,400 g"],
 ["Saborín","saborin","200 g,400 g"]
 
@@ -216,14 +211,15 @@ let presentaciones=""
 
 p[2].split(",").forEach(x=>{
 
-let texto = x.trim()
+let texto=x.trim()
 
-if(texto === "227 g") texto = "227 g (1/2 Lbs)"
-if(texto === "454 g") texto = "454 g (1 Lbs)"
+if(texto==="227 g") texto="227 g (1/2 Lb)"
+if(texto==="454 g") texto="454 g (1 Lb)"
 
 presentaciones+=`<div class="price-pill"><div class="uom">${texto}</div></div>`
 
 })
+
 grid.innerHTML+=`
 
 <div class="col-md-4 product" data-name="${p[1]}">
@@ -298,6 +294,4 @@ modal.show()
 </script>
 
 </body>
-
 </html>
-
